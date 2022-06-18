@@ -1,0 +1,21 @@
+!doctype HTML
+<html>
+<head></head>
+<body>
+<input type="text" placeholder="Enter link here!" id="link">
+<button id="submit" onclick="getKey();">Get key</button>
+<h2 id="key">Key will appear here!</h2>
+<script>
+function getKey() {
+const adLink = document.getElementById("link").value;
+
+const encodedKey = adLink.substring(adLink.indexOf('?') + 3);
+const githubLink = decodeURIComponent(escape(window.atob( encodedKey )));
+const key = githubLink.substring(githubLink.indexOf('?') + 1);
+
+
+document.getElementById("key").innerHTML = key;
+}
+</script>
+</body>
+</html>
